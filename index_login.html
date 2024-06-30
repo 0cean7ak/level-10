@@ -8,13 +8,18 @@
 </head>
 <body>
     <h1>
-        <a href="/login">Logo</a>
+        <a href="/">Logo</a>
     </h1>
-    메인페이지
     <ul>
+        {% if user %}
+        <h2>안녕하세요 {{user.username}}님</h2>
+        <li><a href="/user/profile">프로필</a></li>
+        <li><a href="/user/logout">로그아웃</a></li>
+        <li><a href="/list">게시판</a></li>
+        {% else %}
+        <h2>메인페이지</h2>
         <li><a href="/user/login">로그인</a></li>
-        {% if sessionId %}
-        <li><a href="/user/profile">프로필 정보</a></li>
+        <li><a href="/list">게시판</a></li>
         {% endif %}
     </ul>
 </body>
